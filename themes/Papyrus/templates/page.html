@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ page.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME }} | {{ page.title }}{%endblock%}
+
+{% block content %}
+
+<main class="text-zinc-800 dark:text-zinc-300">
+    <div class="max-w-7xl container mx-auto my-2 text-zinc-800 dark:text-zinc-300  
+            prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+            prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+            prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+            dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+            prose-blockquote:text-zinc-800
+            dark:prose-blockquote:text-zinc-200
+            prose-a:text-slate-600 prose-a:font-normal
+            dark:prose-a:text-slate-400
+            dark:prose-strong:text-zinc-200 
+            dark:prose-code:text-zinc-200
+            dark:prose-code:bg-zinc-800
+            prose-code:bg-zinc-200
+            prose-code:font-light
+            prose-img:rounded-md
+            sm:text-left md:text-justify
+            ">
+        {% import 'translations.html' as translations with context %}
+        {{ translations.translations_for(page) }}
+        {{ page.content }}
+        
+        {% if page.title == 'Home' and LINKS %}
+        <div class="mt-12 mb-8 border-t pt-8 border-zinc-300 dark:border-zinc-700">
+            <h2 class="mb-4 text-xl font-semibold">{% if LINKS_WIDGET_NAME %}{{ LINKS_WIDGET_NAME }}{% else %}Links{% endif %}</h2>
+            <div class="flex flex-wrap gap-4 not-prose">
+                {% for name, link in LINKS %}
+                <a href="{{ link }}" class="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 border border-zinc-300 dark:border-zinc-700 bg-neutral-50 dark:bg-zinc-800 rounded-md px-4 py-2 inline-flex items-center transition-colors">
+                    {{ name }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+    </div>
+    {% if SHARE %}
+    <footer class="flex bg-zinc-200 dark:bg-zinc-700 mt-10 py-2 rounded-lg justify-center space-x-2 text-xs">
+        {% for name, link in SHARE %}
+        <ul>
+            <li class="bg-gray-900 p-1 text-white rounded-md">
+                <a target="_blank" rel="noopener noreferrer" title="{{ name }}"
+                    aria-label="share Features on {{ name }}" href="{{ link }}{{ SITEURL }}/{{ page.url }}">
+                    <i class="fab fa-{{ name }} fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        {% endfor %}
+    </footer>
+    {% endif %}
+    <div>
+        {% include 'disqus_script.html' %}
+    </div>
+</main>
+
+{% endblock %}
