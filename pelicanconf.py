@@ -78,13 +78,11 @@ PAGE_SAVE_AS = '{slug}.html'
 
 # Clean Blog specific settings
 MENUITEMS = [
-    ('Home', '/'),
-    ('Archives', '/archives.html'),
-    ('Categories', '/categories.html'),
-    ('Tags', '/tags.html'),
+    ('Blog', '/blog/'),
 ]
 
-DISPLAY_PAGES_ON_MENU = True
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
 
 # Social links
 SOCIAL = (
