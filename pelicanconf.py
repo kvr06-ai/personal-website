@@ -116,4 +116,34 @@ PAGINATED_TEMPLATES = {'index': None, 'tag': None, 'category': None, 'author': N
 ARCHIVES_EXTENSION = "html"
 
 # Fix for dates_page undefined error
-DATES_PAGE = "archives.html" 
+DATES_PAGE = "archives.html"
+
+# SEO Settings
+USE_OPEN_GRAPH = True  # Enable Open Graph
+OG_LOCALE = 'en_US'    # Open Graph locale
+OG_IMAGE = '/static/profile.jpg'  # Default OG image
+
+# Twitter Card settings
+TWITTER_CARDS = True
+TWITTER_USERNAME = 'kaushikvr06'
+
+# Sitemap
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.8,
+        'indexes': 0.5,
+        'pages': 0.6
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
+
+# Enable reading time estimation
+SHOW_ARTICLE_READTIME = True
+
+# Schema.org representation
+SCHEMA_ORG = True 
