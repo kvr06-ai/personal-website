@@ -33,4 +33,9 @@ cache/
 .idea/
 .vscode/
 *.swp
-.DS_Store 
+.DS_Store
+
+# CV files (excluded from repo)
+CV snips/
+Kaushik_Rajan_CV.pdf
+static/Kaushik_Rajan_CV.pdf 

@@ -75,10 +75,17 @@ ARTICLE_URL = 'blog/{slug}.html'
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
+CATEGORY_URL = 'category/{slug}.html'
+CATEGORY_SAVE_AS = 'category/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
+AUTHOR_URL = 'author/{slug}.html'
+AUTHOR_SAVE_AS = 'author/{slug}.html'
 
 # Clean Blog specific settings
 MENUITEMS = [
-    ('Blog', '/blog/'),
+    ('Home', '/'),
+    ('CV', '/Kaushik_Rajan_CV.pdf'),
 ]
 
 DISPLAY_PAGES_ON_MENU = False
@@ -146,4 +153,11 @@ SITEMAP = {
 SHOW_ARTICLE_READTIME = True
 
 # Schema.org representation
-SCHEMA_ORG = True 
+SCHEMA_ORG = True
+
+# Index page settings - show only blog posts on the main index
+INDEX_SAVE_AS = 'index.html'
+CATEGORIES_SAVE_AS = 'categories.html'
+
+# Set HOME_HIDE_TAGS to True to hide tags and categories on the home page
+HOME_HIDE_TAGS = True 
